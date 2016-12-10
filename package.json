@@ -20,6 +20,7 @@
     "react-redux": "^4.4.5",
     "react-tap-event-plugin": "^2.0.1",
     "redux": "^3.5.2",
+    "redux-saga": "^0.13.0",
     "whatwg-fetch": "^1.0.0"
   },
   "devDependencies": {

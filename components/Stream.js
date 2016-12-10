@@ -13,6 +13,7 @@ const data = times(() => ({
 
 const hydrateListItem = ({author, title}) => 
   el(ListItem, {
+    key: title,
     leftAvatar: el(Avatar, {src: author.image}),
     primaryText: title,
     secondaryText: author.handle

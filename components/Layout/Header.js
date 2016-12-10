@@ -1,11 +1,14 @@
+import { connect } from 'react-redux';
 import { createElement as el } from 'react';
 import { AppBar, Avatar } from 'material-ui';
 import { image } from 'faker';
+import * as mapDispatchToProps from '../../core/actions';
 
-const Header = props => 
-el(AppBar, {
-  title: 'Sex & Politics',
-  iconElementRight: el(Avatar, {src: image.avatar()})
-})
+const Header = ({toggleDrawer}) => 
+  el(AppBar, {
+    title: 'Sex & Politics',
+    iconElementRight: el(Avatar, {src: image.avatar()}),
+    onLeftIconButtonTouchTap: () => toggleDrawer()
+  });
 
-export default Header;
+export default connect(state => state, mapDispatchToProps)(Header);
