@@ -7,7 +7,7 @@ import * as mapDispatchToProps from '../../core/actions';
 
 const Header = ({toggleDrawer, currentFrank}) => 
   el(AppBar, {
-    title: currentFrank.title,
+    title: currentFrank.title || "Heard",
     iconElementRight: el(Avatar, {src: image.avatar()}),
     onLeftIconButtonTouchTap: () => toggleDrawer()
   });
