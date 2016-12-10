@@ -13,6 +13,11 @@
     "chunk": "main"
   },
   {
+    "path": "/timeline",
+    "page": "./pages/timeline",
+    "chunk": "main"
+  },
+  {
     "path": "/about",
     "page": "./pages/about"
   },
