@@ -1,28 +1,25 @@
-import { random, image } from 'faker';
-import { pick, times, map } from 'ramda';
+import { toPairs, pick, map } from 'ramda';
 import { connect } from 'react-redux';
 import { createElement as el } from 'react';
 import { Drawer, MenuItem, Avatar } from 'material-ui'
 import * as mapDispatchToProps from '../core/actions';
 
-const frankData = times(() => ({
-  image: image.business(),
-  title: random.word()
-}), 5);
-
-const hydrateMenuItem = ({image, title}) => 
+const hydrateMenuItem = pickFrank => ([slug, frank]) => 
   el(MenuItem, {
-    key: title,
-    primaryText: title,
-    leftIcon: el(Avatar, {src: image}),
-    onTouchTap: () => focusFrank(title)
+    key: frank.title,
+    primaryText: frank.title,
+    leftIcon: el(Avatar, {src: frank.image}),
+    onTouchTap: () => pickFrank(frank)
   })
 
-const FrankPicker = ({drawer, toggleDrawer}) => {
+const FrankPicker = ({drawer, toggleDrawer, pickFrank, frankscriptions}) => {
   return el(Drawer, {
     open: drawer.open, docked: false,
     onRequestChange:  () => toggleDrawer()
-  }, map(hydrateMenuItem, frankData));
+  }, map(hydrateMenuItem(pickFrank), toPairs(frankscriptions)));
 }
 
-export default connect(pick(['drawer']), mapDispatchToProps)(FrankPicker);
+export default connect(
+  pick(['drawer', 'frankscriptions']),
+  mapDispatchToProps
+)(FrankPicker);

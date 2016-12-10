@@ -4,9 +4,9 @@ import { AppBar, Avatar } from 'material-ui';
 import { image } from 'faker';
 import * as mapDispatchToProps from '../../core/actions';
 
-const Header = ({toggleDrawer}) => 
+const Header = ({toggleDrawer, frank}) => 
   el(AppBar, {
-    title: 'Sex & Politics',
+    title: frank.title,
     iconElementRight: el(Avatar, {src: image.avatar()}),
     onLeftIconButtonTouchTap: () => toggleDrawer()
   });

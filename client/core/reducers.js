@@ -1,3 +1,6 @@
+import { reduce, times } from 'ramda';
+import { random, image, internet } from 'faker';
+
 const defaultState = {
   open: false
 }
@@ -9,3 +12,27 @@ export const drawer = (state=defaultState, {type, payload}) => {
       return state;
   }
 }
+
+export const frank = (state={}, {type, payload}) => {
+  switch (type) {
+    case "PICK_FRANK":
+      return { ...payload }
+    default:
+      return state;
+  }
+};
+
+const generateFrank = () => ({
+  image: image.business(),
+  title: random.word(),
+  slug: internet.domainName()
+});
+const mergeBySlug = (acc, value) => ({ ...acc, [value.slug]: value });
+const defaultFrankscriptions = reduce(mergeBySlug, {}, times(generateFrank, 5));
+
+export const frankscriptions = (state=defaultFrankscriptions, {type, payload}) => {
+  switch (type) {
+    default:
+      return state;
+  }
+};
