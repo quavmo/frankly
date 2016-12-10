@@ -8,12 +8,14 @@ export const drawer = (state=defaultState, {type, payload}) => {
   switch (type) {
     case "TOGGLE_DRAWER":
       return { ...state, open: !state.open }
+    case "PICK_FRANK":
+      return { ...state, open: false }
     default:
       return state;
   }
 }
 
-export const frank = (state={}, {type, payload}) => {
+export const currentFrank = (state={}, {type, payload}) => {
   switch (type) {
     case "PICK_FRANK":
       return { ...payload }
