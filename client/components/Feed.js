@@ -19,7 +19,7 @@ const hydrateListItem = ({author, title}) =>
     secondaryText: author.handle
   });
 
-const Stream = props =>
+const Feed = props =>
   el(List, {className: 'stream'}, el('div', {}, map(hydrateListItem, data)))
 
-export default Stream;
+export default Feed;
