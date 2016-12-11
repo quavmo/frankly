@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import * as reducers from './reducers';
-import { messageSaga } from './sagas';
+import { messageSaga, frankSaga } from './sagas';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -13,3 +13,4 @@ export default createStore(
 );
 
 sagaMiddleware.run(messageSaga);
+sagaMiddleware.run(frankSaga);

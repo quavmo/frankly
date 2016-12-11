@@ -15,20 +15,11 @@ export const drawer = (state=defaultState, {type, payload}) => {
   }
 }
 
-const generateStory = () => ({
-  author: {
-    image: image.avatar(),
-    handle: internet.userName()
-  },
-  title: company.catchPhrase(),
-});
-const generateStories = () => times(generateStory, 12);
-
 export const currentFrank = (state={stories: []}, {type, payload}) => {
   switch (type) {
-    case "PICK_FRANK":
-      console.log(type, payload)
-      return { ...payload, stories: generateStories() }
+    case "FRANK_FETCH_SUCCESS":
+    
+      return { ...payload }
     default:
       return state;
   }
