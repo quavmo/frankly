@@ -18,7 +18,6 @@ export const drawer = (state=defaultState, {type, payload}) => {
 export const currentFrank = (state={stories: []}, {type, payload}) => {
   switch (type) {
     case "FRANK_FETCH_SUCCESS":
-    
       return { ...payload }
     default:
       return state;

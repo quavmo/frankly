@@ -18,7 +18,6 @@ function* createMessage({ payload }) {
   }
 }
 
-
 export function* messageSaga() {
   yield takeLatest('POST_MESSAGE', createMessage);
 }
@@ -41,7 +40,7 @@ function* fetchFrank({ payload }) {
   // try {
     yield put({
       type: "FRANK_FETCH_SUCCESS",
-      payload: call(get, payload),
+      payload: yield call(get, payload),
     });
   // } catch (error) {
   //   yield put({
