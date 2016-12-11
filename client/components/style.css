@@ -1,8 +1,14 @@
+.stuckForm {
+  bottom: 0px;
+  position: fixed;
+  width: 100%;
+}
+
 .fab {
-    margin: 0px;
-    top: auto;
-    right: 20px;
-    bottom: 20px;
-    left: auto;
-    position: fixed;
+  margin: 0px;
+  top: auto;
+  right: 20px;
+  bottom: 20px;
+  left: auto;
+  position: fixed;
 };

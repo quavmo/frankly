@@ -6,10 +6,12 @@ import Feed from '../../components/Feed';
 import Composer from '../../components/Composer';
 import * as mapDispatchToProps from '../../core/actions';
 
-const Timeline = ({currentFrank, toggleComposition, composition}) => {
+const Timeline = ({
+  currentFrank, toggleComposition,  updateComposition, submitComposition, composition
+}) => {
   return el(Layout, {},
     el(Feed, {currentFrank}),
-    el(Composer, {toggleComposition, composition}),
+    el(Composer, {toggleComposition, updateComposition, submitComposition, composition}),
   );
 };
   
