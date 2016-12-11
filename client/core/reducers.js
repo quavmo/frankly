@@ -1,10 +1,8 @@
 import { reduce, times } from 'ramda';
 import { random, image, internet, company } from 'faker';
 
-const defaultState = {
-  open: false
-}
-export const drawer = (state=defaultState, {type, payload}) => {
+const defaultDrawer = { open: false }
+export const drawer = (state=defaultDrawer, {type, payload}) => {
   switch (type) {
     case "TOGGLE_DRAWER":
       return { ...state, open: !state.open }
@@ -13,7 +11,17 @@ export const drawer = (state=defaultState, {type, payload}) => {
     default:
       return state;
   }
-}
+};
+
+const defaultComposition = { open: false };
+export const composition = (state=defaultComposition, {type, payload}) => {
+  switch (type) {
+    case "TOGGLE_COMPOSITION":
+      return { ...state, open: !state.open }
+    default:
+      return state;
+  }
+};
 
 export const currentFrank = (state={stories: []}, {type, payload}) => {
   switch (type) {
