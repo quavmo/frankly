@@ -1,5 +1,5 @@
 import { createElement as el } from 'react';
 
-const Footer = props => el('div', {}, '...footer...')
+const Footer = props => null;
 
 export default Footer;
