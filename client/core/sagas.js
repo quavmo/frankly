@@ -4,18 +4,19 @@ import { takeLatest } from 'redux-saga';
 import { call, put } from 'redux-saga/effects';
 import Promise from 'bluebird';
 
+const post = ({content}) => new Promise(resolve => resolve({content}));
 function* createMessage({ payload }) {
-  try {
+  // try {
     yield put({
-      type: "MESSAGE_CREATION_SUCCEEDED",
+      type: "TOGGLE_COMPOSITION",
       payload: yield call(post, payload),
     });
-  } catch (error) {
-    yield put({
-      type: "MESSAGE_CREATION_FAILED",
-      payload: { error, payload },
-    });
-  }
+  // } catch (error) {
+  //   yield put({
+  //     type: "MESSAGE_CREATION_FAILED",
+  //     payload: { error, payload },
+  //   });
+  // }
 }
 
 export function* messageSaga() {
