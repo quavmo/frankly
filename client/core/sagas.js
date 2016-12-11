@@ -7,19 +7,19 @@ import Promise from 'bluebird';
 function* createMessage({ payload }) {
   try {
     yield put({
-      type: act.MESSAGE_CREATION_SUCCEEDED,
+      type: "MESSAGE_CREATION_SUCCEEDED",
       payload: yield call(post, payload),
     });
   } catch (error) {
     yield put({
-      type: act.MESSAGE_CREATION_FAILED,
+      type: "MESSAGE_CREATION_FAILED",
       payload: { error, payload },
     });
   }
 }
 
 export function* messageSaga() {
-  yield takeLatest('POST_MESSAGE', createMessage);
+  yield takeLatest('SUBMIT_COMPOSITION', createMessage);
 }
 
 const generateStory = () => ({

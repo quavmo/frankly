@@ -11,9 +11,9 @@ el(FloatingActionButton, {
 }, el(ContentAdd));
 
 const Composer = ({toggleComposition, composition, updateComposition, submitComposition}) => 
-{
-  return composition.open ? 
-    el(StuckForm, {updateComposition, submitComposition, composition}) :
-    el(StuckButton, { toggleComposition })
-}
+  el('div', {},
+    el(StuckButton, { toggleComposition }),
+    el(StuckForm, { toggleComposition, updateComposition, submitComposition, composition }),
+  )
+
 export default Composer;

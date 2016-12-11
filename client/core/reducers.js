@@ -17,7 +17,9 @@ const defaultComposition = { open: false };
 export const composition = (state=defaultComposition, {type, payload}) => {
   switch (type) {
     case "TOGGLE_COMPOSITION":
-      return { ...state, open: !state.open }
+      return { ...state, open: !state.open, content: '' }
+    case "UPDATE_COMPOSITION":
+      return { ...state, content: payload }
     default:
       return state;
   }
