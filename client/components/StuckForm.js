@@ -32,7 +32,6 @@ const StuckForm = ({
     el(TextField, {
       name: "composition",
       autoFocus: true,
-      multiLine: true,
       rows:4,
       rowsMax:6,
       onChange: ({target}) => updateComposition(target.value)
